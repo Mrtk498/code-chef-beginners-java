@@ -1,0 +1,44 @@
+package COOMILK;
+
+import java.util.Scanner;
+
+/**
+ * Created by Tanay_Khare on 14-Mar-17.
+ */
+public class test {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String[] input = new String[50];
+        String[] result = new String[50];
+        int k;
+
+        int TestCases = scan.nextInt();
+        for (int i = 0; i < TestCases; i++) {
+            String Flag = "YES";
+            int MinsSpent = scan.nextInt();
+            for (int j = 0; j < MinsSpent; j++) {
+                input[j] = scan.next();
+            }
+            for (k = 0; k < MinsSpent; k++) {
+                if (k != 0 && "cookie".equalsIgnoreCase(input[k]) && "cookie".equalsIgnoreCase(input[k - 1])) {
+                    Flag = "NO";
+                } else {
+                    Flag = "YES";
+                }
+            }
+            if (k == 0 && ("cookie".equalsIgnoreCase(input[MinsSpent - 1]))) {
+                Flag = "NO";
+            }
+            if (k != 0 && ("cookie".equalsIgnoreCase(input[MinsSpent - 1]))) {
+                Flag = "NO";
+            }
+
+            result[i] = Flag;
+        }
+        for (int a = 0; a < TestCases; a++) {
+            System.out.println(result[a]);
+            }
+        }
+    }
+
+
