@@ -1,0 +1,36 @@
+package KOL16B;
+
+import java.util.Scanner;
+
+/**
+ * Created by Tanay_Khare on 15-Mar-17.
+ */
+public class Main {
+    public static void main(String args[]){
+
+        Scanner Scan = new Scanner(System.in);
+        int [] Array1 = new int[10000];
+        int [] Array2 = new int[10000];
+        int [] ArrayComb = new int[10000];
+
+        int NoTestCases = Scan.nextInt();
+
+        for(int i = 0; i < NoTestCases; i++) {
+            int ArraySize = Scan.nextInt();
+                for(int k = 0; k < ArraySize; k++){
+                    ArrayComb[k] = Scan.nextInt();
+                }
+            for(int t = 0;t < ArraySize; t++){
+                Array1[t] = ArrayComb[t]%65536;
+                Array2[t] = ArrayComb[t]/65536;
+            }
+            for(int s= 0; s < ArraySize; s++){
+                System.out.print(Array1[s]+ ", ");
+            }
+            System.out.println("");
+            for(int h= 0; h < ArraySize; h++){
+                System.out.print(Array2[h]+", ");
+            }
+            }
+        }
+    }
