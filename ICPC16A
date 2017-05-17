@@ -1,52 +1,56 @@
 package ICPC16A;
 
 import java.util.Scanner;
+import java.io.*;
 
 /**
  * Created by Tanay_Khare on 17-May-17.
  */
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
+        try {
+            Scanner Scan = new Scanner(System.in);
 
-        Scanner Scan = new Scanner(System.in);
+            int TestCases = Scan.nextInt();
 
-        int TestCases = Scan.nextInt();
+            int[] ArrayInp = new int[4];
+            String[] ArrayOut = new String[TestCases];
 
-        int[] ArrayInp = new int[4];
-        String[] ArrayOut = new String[TestCases];
-
-        for (int i = 0; i < TestCases; i++) {
-            for (int k = 0; k < 4; k++) {
-                ArrayInp[k] = Scan.nextInt();
-            }
-
-            if (ArrayInp[0] == ArrayInp[2]) {
-                if (ArrayInp[1] > ArrayInp[3]) {
-                    ArrayOut[i] = "down";
-                }
-                if (ArrayInp[1] < ArrayInp[3]) {
-                    ArrayOut[i] = "up";
+            for (int i = 0; i < TestCases; i++) {
+                for (int k = 0; k < 4; k++) {
+                    ArrayInp[k] = Scan.nextInt();
                 }
 
-            }
+                if (ArrayInp[0] == ArrayInp[2]) {
+                    if (ArrayInp[1] > ArrayInp[3]) {
+                        ArrayOut[i] = "down";
+                    }
+                    if (ArrayInp[1] < ArrayInp[3]) {
+                        ArrayOut[i] = "up";
+                    }
 
-            if (ArrayInp[1] == ArrayInp[3]) {
-                if (ArrayInp[0] > ArrayInp[2]) {
-                    ArrayOut[i] = "left";
                 }
-                if (ArrayInp[0] < ArrayInp[2]) {
-                    ArrayOut[i] = "right";
+
+                if (ArrayInp[1] == ArrayInp[3]) {
+                    if (ArrayInp[0] > ArrayInp[2]) {
+                        ArrayOut[i] = "left";
+                    }
+                    if (ArrayInp[0] < ArrayInp[2]) {
+                        ArrayOut[i] = "right";
+                    }
+
                 }
 
+                if ((ArrayInp[0] != ArrayInp[2]) && (ArrayInp[1] != ArrayInp[3])) {
+                    ArrayOut[i] = "sad";
+                }
             }
 
-            if ((ArrayInp[0] != ArrayInp[2]) && (ArrayInp[1] != ArrayInp[3])) {
-                ArrayOut[i] = "sad";
+            for (int a = 0; a < TestCases; a++) {
+                System.out.println(ArrayOut[a]);
             }
-        }
-
-        for(int a=0;a<TestCases;a++){
-        System.out.println(ArrayOut[a]);
-        }
+           } catch (Exception e) {
+            return;
+            }
     }
 }
